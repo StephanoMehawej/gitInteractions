@@ -1,9 +1,10 @@
 {
-  "title": "paramJson",
-  "body":"bob",
-  "repo":"StephanoMehawej/Test",
-  "labels":"suggestion",
+  "title": "[issue title]",
+  "body":"[issue body]",
+  "repo":"[Repo path: ex: 'StephanoMehawej/Test']",
+  "labels":"[Label name]",
+  "milestone":"[milestone name]",
   "assignees":"StephanoMehawej",
-  "login": "StephanoMehawej",
-  "OAuth": "31cdf20014afafbdc8cc7a94de88525166b977d1"
+  "login": "[Your username]",
+  "OAuth": "[your OAuth token]"
 }
