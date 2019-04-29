@@ -46,8 +46,6 @@
         <url>http://github.com/simpligility/StephanoMehawej/gitInteractions</url>
     </scm>
 
-    <packaging>jar</packaging>
-
     <build>
         <plugins>
             <plugin>
