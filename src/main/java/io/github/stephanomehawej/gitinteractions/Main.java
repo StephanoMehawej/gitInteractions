@@ -6,6 +6,8 @@ import org.json.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -15,22 +17,22 @@ public class Main {
        String data = "";
 
         try {
-            JSONObject issueInfo = new JSONObject();
-            File file = (new File(args[0]));
-            if (file.exists()){
-                data =  new String(Files.readAllBytes(Paths.get(args[0])), "UTF-8");
-            }else{
-                data = args[0];
-            }
-            JSONObject newIssue = new JSONObject(data);
-            issue = new Issue(newIssue.get("repo").toString(),newIssue.get("login").toString(),newIssue.get("OAuth").toString());
-            issue.JSonIssue(newIssue);
+
+            URI uri = new URI("file:///D:/Code/gitInteractions/src/main/resources/config.json");
+            JSONTokener tokener = new JSONTokener(uri.toURL().openStream());
+            JSONObject issueInfo = new JSONObject(tokener);
+
+
+            issue = new Issue(issueInfo.get("repo").toString(),issueInfo.get("login").toString(),issueInfo.get("OAuth").toString());
+            issue.JSonIssue(issueInfo);
             issue.sendIssue();
         } catch (attributeNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (invalidValueException e) {
+            e.printStackTrace();
+        } catch (URISyntaxException e) {
             e.printStackTrace();
         }
     }
